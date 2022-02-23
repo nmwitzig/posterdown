@@ -305,6 +305,40 @@ margin-left: 4mm;
 .references p {
 font-size: 20pt;
 }
+.fab {
+color: $if(affiliation_textcol)$$affiliation_textcol$$else$#00000060$endif$;
+font-size: 25px;
+}
+.twitter, i {
+color: $if(affiliation_textcol)$$affiliation_textcol$$else$#00000060$endif$;
+font-size: 35px;
+text-decoration: none;
+}
+a.email {
+text-decoration: none;
+color: $if(affiliation_textcol)$$affiliation_textcol$$else$#00000060$endif$;
+font-size: 35px;
+}
+.envelope {
+color: $if(affiliation_textcol)$$affiliation_textcol$$else$#00000060$endif$;
+font-size: 5px;
+text-decoration: none;
+}
+.globe {
+color: $if(affiliation_textcol)$$affiliation_textcol$$else$#00000060$endif$;
+font-size: 5px;
+text-decoration: none;
+}
+.github > .fab {
+color: $if(affiliation_textcol)$$affiliation_textcol$$else$#00000060$endif$;
+font-size: 40px;
+text-decoration: none;
+}
+.globetext {
+color: $if(affiliation_textcol)$$affiliation_textcol$$else$#00000060$endif$;
+font-size: 35px;
+text-decoration: none;
+}
 .orcid img {
   width: 1em;
 }
@@ -330,7 +364,40 @@ $endif$
 <!-- Poster Title -->
 <div class= "poster_title">
 $if(title)$<h1 id="title">$title$</h1>$endif$
-$if(author)$<h3 id="author">$for(author)$$author.name$<sup>$author.affil$$if(author.orcid)$, <a class="orcid" href="https://orcid.org/$author.orcid$"><img src="https://raw.githubusercontent.com/brentthorne/posterdown/master/images/orcid.jpg"></a>$else$$endif$</sup>$sep$, $endfor$</h3>$endif$
+$if(author)$
+<h3 id="author" class="author">
+
+$for(author)$
+$if(author.main)$
+$author.name$<sup> $author.affil$$if(author.orcid)$, <a class="orcid" href="https://orcid.org/$author.orcid$"><img src="https://raw.githubusercontent.com/brentthorne/posterdown/master/images/orcid.jpg"></a>$else$$endif$</sup><br>
+$if(author.twitter)$<a class="twitter" href="https://mobile.twitter.com/$author.twitter$"><i class="fab fa-twitter"></i>&nbsp;@$author.twitter$</a> <br>
+$else$$endif$
+$if(author.email)$
+<a class='envelope'><i class="fas fa-envelope"></i></a> $author.email$ <br>
+$else$$endif$
+$if(author.website)$
+<a class='globe'><i class="fas fa-globe"></i></a> <a class='globetext'> $author.website$</a> <br>
+$else$$endif$
+$if(author.github)$
+<a class='github'><i class="fab fa-github"></i></a><a class='globetext' href="https://github.com/$author.github$"> &nbsp;@$author.github$</a>
+$else$$endif$
+$else$$endif$
+$sep$ $endfor$
+</h3>
+$else$$endif$
+
+$if(author)$
+<h5 id="author_extra" class="author_extra">
+$for(author)$
+$if(author.main)$
+$else$
+$author.name$<sup>$author.affil$$if(author.orcid)$, <a class="orcid" href="https://orcid.org/$author.orcid$"><img src="https://raw.githubusercontent.com/brentthorne/posterdown/master/images/orcid.jpg"></a>$else$$endif$</sup>
+$endif$
+$sep$ $endfor$
+</h5>
+$else$$endif$
+
+
 $if(affiliation)$<h5 id="affiliation">$for(affiliation)$<sup>$affiliation.num$</sup> $affiliation.address$$sep$; $endfor$</h5>$endif$
 </div>
 <!-- Right Logo  -->
