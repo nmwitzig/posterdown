@@ -370,16 +370,17 @@ $if(author)$
 $for(author)$
 $if(author.main)$
 $author.name$<sup> $author.affil$$if(author.orcid)$, <a class="orcid" href="https://orcid.org/$author.orcid$"><img src="https://raw.githubusercontent.com/brentthorne/posterdown/master/images/orcid.jpg"></a>$else$$endif$</sup><br>
-$if(author.twitter)$<a class="twitter" href="https://mobile.twitter.com/$author.twitter$"><i class="fab fa-twitter"></i>&nbsp;@$author.twitter$</a>
-$else$$endif$
 $if(author.email)$
 <a class='envelope'><i class="fas fa-envelope"></i></a> $author.email$ 
 $else$$endif$
 $if(author.website)$
-<a class='globe'><i class="fas fa-globe"></i></a> <a class='globetext' href="$author.website$"> $author.website$</a>>
+<a class='globe'><i class="fas fa-globe"></i></a> <a class='globetext' href="https://$author.website$"> $author.website$</a>>
+$else$$endif$
+$if(author.twitter)$
+<a class="twitter" href="https://mobile.twitter.com/$author.twitter$"><i class="fab fa-twitter"></i>&nbsp;@$author.twitter$</a>
 $else$$endif$
 $if(author.github)$
-<a class='github'><i class="fab fa-github"></i></a><a class='globetext' href="https://github.com/$author.github$"> &nbsp;@$author.github$</a>
+<a class='github' href="https://github.com/$author.github$"><i class="fab fa-github"></i> &nbsp;@$author.github$</a>
 $else$$endif$
 $else$$endif$
 $sep$ $endfor$
