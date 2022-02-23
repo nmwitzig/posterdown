@@ -310,7 +310,6 @@ color: $if(affiliation_textcol)$$affiliation_textcol$$else$#00000060$endif$;
 font-size: 25px;
 }
 .twitter, i {
-color: $if(affiliation_textcol)$$affiliation_textcol$$else$#00000060$endif$;
 font-size: 35px;
 text-decoration: none;
 }
@@ -378,10 +377,10 @@ $if(author.website)$
 <a class='globe'><i class="fas fa-globe"></i></a> <a class='globetext' href="$author.website$"> $author.website$</a>
 $else$$endif$
 $if(author.twitter)$
-<a class="twitter" href="https://mobile.twitter.com/$author.twitter$"><i class="fab fa-twitter style="color:#1DA1F2" "></i>&nbsp;@$author.twitter$</a>
+<a class="twitter" href="https://mobile.twitter.com/$author.twitter$" style="color:#1DA1F2"><i class="fab fa-twitter style="color:#1DA1F2" "></i>&nbsp;@$author.twitter$</a>
 $else$$endif$
 $if(author.github)$
-<a class='github'><i class="fab fa-github"></i></a><a class='globetext' href="https://github.com/$author.github$"> &nbsp;@$author.github$</a>
+<a class='github' style="color:#000000"><i class="fab fa-github" style="color:#000000"></i></a><a class='globetext' href="https://github.com/$author.github$"> &nbsp;@$author.github$</a>
 $else$$endif$
 $else$$endif$
 $sep$ $endfor$
