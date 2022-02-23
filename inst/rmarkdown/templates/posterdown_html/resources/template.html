@@ -310,7 +310,7 @@ color: $if(affiliation_textcol)$$affiliation_textcol$$else$#00000060$endif$;
 font-size: 25px;
 }
 .twitter, i {
-color: $if(twitter_textcol)$$twitter_textcol$$else$#00000060$endif$;
+color: $if(affiliation_textcol)$$affiliation_textcol$$else$#00000060$endif$;
 font-size: 35px;
 text-decoration: none;
 }
@@ -330,12 +330,12 @@ font-size: 5px;
 text-decoration: none;
 }
 .github > .fab {
-color: $if(github_textcol)$$github_textcol$$else$#00000060$endif$;
+color: $if(affiliation_textcol)$$affiliation_textcol$$else$#00000060$endif$;
 font-size: 40px;
 text-decoration: none;
 }
 .globetext {
-color: $if(affiliation_textcol)$$affiliation_textcol$$else$#00000060$endif$;
+color: $if(globe_textcol)$$affiliation_textcol$$else$#00000060$endif$;
 font-size: 35px;
 text-decoration: none;
 }
@@ -365,22 +365,23 @@ $endif$
 <div class= "poster_title">
 $if(title)$<h1 id="title">$title$</h1>$endif$
 $if(author)$
+<
 <h3 id="author" class="author">
 
 $for(author)$
 $if(author.main)$
 $author.name$<sup> $author.affil$$if(author.orcid)$, <a class="orcid" href="https://orcid.org/$author.orcid$"><img src="https://raw.githubusercontent.com/brentthorne/posterdown/master/images/orcid.jpg"></a>$else$$endif$</sup><br>
 $if(author.email)$
-<a class='envelope'><i class="envelope"></i></a> <a class="globetext" href="mailto:$author.email$">$author.email$ </a>
+<a class='envelope'><i class="fas fa-envelope"></i></a> <a class='globetext' href="mailto:$author.email$"> $author.email$</a>
 $else$$endif$
 $if(author.website)$
-<a class='globe'><i class="globe"></i></a> <a class='globetext' href="$author.website$"> $author.website$</a>
+<a class='globe'><i class="fas fa-globe"></i></a> <a class='globetext' href="$author.website$"> $author.website$</a>
 $else$$endif$
 $if(author.twitter)$
-<a class="twitter" href="https://mobile.twitter.com/$author.twitter$"><i class="globetext"></i>&nbsp;@$author.twitter$</a>
+<a class="twitter" href="https://mobile.twitter.com/$author.twitter$"><i class="fab fa-twitter style="color:#1DA1F2" "></i>&nbsp;@$author.twitter$</a>
 $else$$endif$
 $if(author.github)$
-<a class='github'><i class="github"></i></a><a class='globetext' href="https://github.com/$author.github$"> &nbsp;@$author.github$</a>
+<a class='github'><i class="fab fa-github"></i></a><a class='globetext' href="https://github.com/$author.github$"> &nbsp;@$author.github$</a>
 $else$$endif$
 $else$$endif$
 $sep$ $endfor$
@@ -398,8 +399,10 @@ $sep$ $endfor$
 </h5>
 $else$$endif$
 
+<p id="affiliation" class="affiliation">
+$for(affiliation)$<sup>$affiliation.num$</sup> $affiliation.address$$sep$<br> $endfor$
+</p>
 
-$if(affiliation)$<h5 id="affiliation">$for(affiliation)$<sup>$affiliation.num$</sup> $affiliation.address$$sep$; $endfor$</h5>$endif$
 </div>
 <!-- Right Logo  -->
 <div class="logo_right">
