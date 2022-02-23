@@ -371,13 +371,13 @@ $for(author)$
 $if(author.main)$
 $author.name$<sup> $author.affil$$if(author.orcid)$, <a class="orcid" href="https://orcid.org/$author.orcid$"><img src="https://raw.githubusercontent.com/brentthorne/posterdown/master/images/orcid.jpg"></a>$else$$endif$</sup><br>
 $if(author.email)$
-<a class='envelope'><i class="fas fa-envelope"></i></a> <a class='globetext' href="mailto:$author.email$"> $author.email$</a>
+<a class='envelope' style="color:#000000"><i class="fas fa-envelope" style="color:#000000"></i></a> <a class='globetext' href="mailto:$author.email$"> $author.email$</a>
 $else$$endif$
 $if(author.website)$
-<a class='globe'><i class="fas fa-globe"></i></a> <a class='globetext' href="$author.website$"> $author.website$</a>
+<a class='globe' style="color:#000000"><i class="fas fa-globe" style="color:#000000"></i></a> <a class='globetext' href="$author.website$"> $author.website$</a>
 $else$$endif$
 $if(author.twitter)$
-<a class="twitter" href="https://mobile.twitter.com/$author.twitter$" style="color:#1DA1F2"><i class="fab fa-twitter style="color:#1DA1F2" "></i>&nbsp;@$author.twitter$</a>
+<a class="twitter" style="color:#1DA1F2""><i class="fab fa-twitter" style="color:#1DA1F2"></i></a> <a class="globetext" href="https://mobile.twitter.com/$author.twitter$"> &nbsp;@$author.twitter$ </a>
 $else$$endif$
 $if(author.github)$
 <a class='github' style="color:#000000"><i class="fab fa-github" style="color:#000000"></i></a><a class='globetext' href="https://github.com/$author.github$"> &nbsp;@$author.github$</a>
